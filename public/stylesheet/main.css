@@ -1,0 +1,105 @@
+.thumbnail img{
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+
+.inner{
+   float: left;
+}
+
+.txtTitle{
+    /* font-size: 30px; */
+   /* letter-spacing: 0.1em; */
+   /* font-weight: bold; */
+  
+   /* text-shadow: 1px 0px 14px rgba(0,0,0,0.74); */
+
+}
+.head{
+    font-family: 'Lilita One', cursive;
+    font-size: 25px;
+    letter-spacing: 0.2em;
+    color: #2C3E50;
+}
+#delete-form{
+    display: inline;
+}
+#st{
+    padding: 10px;
+}
+
+#cd{
+    padding-right: 14px;
+}
+
+#commentBtn{
+    padding: 10px;
+    padding-top: 5px;
+}
+#commentHeader{
+    padding-top: 9px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 6px;
+}
+
+#time{
+    text-align: right;
+}
+#right{
+    text-align: right;
+}
+
+hr {
+    width: 100%;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    
+#h{
+    width: 57%;
+    border-top: 2px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.des{
+    padding: 10px;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.commentShow {
+    width: 93%;
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    
+    padding: 10px 34px 10px 12px;
+    border: 1px solid #b7b7b7;
+    border-right-width: 3px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    color: black;
+    /* -o-text-overflow: clip;
+    text-overflow: clip; */
+    background: #ffffff;
+    -webkit-box-shadow: -1px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: -1px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    /* text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ; */
+    /* -webkit-transition: background-color 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: background-color 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: background-color 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: background-color 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: rotateX(-4.010704565915762deg) rotateY(-1.1459155902616465deg)   ;
+    transform: rotateX(-4.010704565915762deg) rotateY(-1.1459155902616465deg)   ; */
+  }

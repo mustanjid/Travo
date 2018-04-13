@@ -1,0 +1,32 @@
+<% include partials/header %>
+  <div class="container">
+
+    <div class="row">
+<h1 style="text-align: center"> Edit <%= place.title %> </h1>
+
+<div class="ui main text container segment">
+<form class="ui form" action="/places/<%= place._id %>?_method=PUT"  method="post">
+  <div class="field">
+    <input class="form-control" type="text" name="post[title]" value="<%= place.title %>" />
+</div>
+
+  <div class="field">
+        <input class="form-control" type="text" name="post[name]" value="<%= place.name %>" />
+  </div>
+
+
+  <div class="field">
+  <!-- <input class="form-control" type="text" name="post[desricption]" value="<%= place.description %>" /> -->
+  <textarea name="post[desricption]" id="" cols="30" rows="10" ><%= place.description %></textarea>
+  </div>
+
+  <div class="field">
+  <button class="btn btn-lg btn-primary">Update Story</button>
+</div>
+</form>
+<a class="pull-right" href="/places">Go Back</a>
+</div>
+
+</div>
+</div>
+<% include partials/footer %>

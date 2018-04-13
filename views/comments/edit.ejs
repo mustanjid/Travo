@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+<!-- Custom css file for show page  -->
+<link rel="stylesheet" type="text/css" href="/stylesheet/main.css" />
+
+<link rel="stylesheet" href="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="col-md-9">
+              
+        <div class="well">
+           
+            <div class="ui form">
+                    <form action="/places/<%= place_id %>/comments/<%= comment._id %>?_method=PUT" method="post">
+                        <div class="field">
+                                <textarea rows="3" name="comment[text]" value="" ><%= comment.text %></textarea>
+                              </div>
+                        
+                        <button class="ui right labeled icon button" > <i class="comment icon"></i>Update</button> 
+                    </form>
+            </div>
+            <hr>
+           
+        </div>
+    </div>
+</div>

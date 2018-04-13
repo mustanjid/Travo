@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+  <div class="container">
+
+    <div class="row">
+<h1 style="text-align: center"> Create a new story </h1>
+
+<div class="ui main text container segment">
+<form class="ui form" action="/places" method="post" enctype="multipart/form-data">
+  <div class="field">
+    <input class="form-control" type="text" name="place[title]" placeholder="Title of Story" />
+</div>
+
+  <div class="field">
+        <input class="form-control" type="text" name="place[name]" placeholder="Name of Your Place" />
+  </div>
+  <div class="field">
+    <label for="">Upload Image</label>
+    <input class="form-control" type="file"  name="image" accept="image/*" required />
+  </div>
+
+  <div class="field">
+    <textarea name="place[description]" id="" cols="30" rows="10" placeholder="Description"></textarea>
+  </div>
+
+ 
+
+  <div class="field">
+  <button class="btn btn-lg btn-primary">Submit</button>
+</div>
+</form>
+<a class="pull-right" href="/places">Go Back</a>
+</div>
+
+</div>
+</div>
+<% include ../partials/footer %>

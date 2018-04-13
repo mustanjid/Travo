@@ -1,0 +1,190 @@
+<% include ../partials/header %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheet/main.css" />
+<link href="https://fonts.googleapis.com/css?family=Lilita+One|Pompiere" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+
+<link rel="stylesheet" href="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                   <div class="col-md-3">
+                        <% if(currentUser && place.author.id.equals(currentUser._id)){ %>
+                            <div class="ui card">
+                                    <div class="image">
+                                      <img  src="https://i.imgur.com/m8irjJK.png">
+                                    </div>
+                                    <div class="content">
+                                      <a class="header"><%= currentUser.username %></a>
+                                      <div class="meta">
+                                        <span class="date"></span>
+                                      </div>
+                                      <div class="description">
+                                            <%= currentUser.username %> loves to travel.
+                                      </div>
+                                    </div>
+                                    <div class="extra content">
+                                      <a>
+                                        <i class="user icon"></i>
+                                      </a>
+                                    </div>
+                                  </div>
+                       <!-- <p class="lead"><%= currentUser.username %></p> -->
+                       <div class="list-group">
+                       <div class="ui vertical menu">
+                            
+                            <li class="list-group-item"><a class="ui inverted green button large ui button" href="/places/new">Add a Story</a></li>
+                           <li class="list-group-item"> <a class="ui inverted violet button large ui button" href="/places/<%= place._id %>/edit">Edit Story</a></li>
+                           <li class="list-group-item"><form id="delete-form" action="/places/<%= place._id %>?_method=DELETE" method="POST">
+                            <button class="ui inverted red button">Delete Story</button>
+                        </form></li>
+                         
+        
+                          
+                       </div>
+                    </div>
+                    <% } %>
+                       <!-- MAP -->
+                   </div>
+                    <div class="col-md-9">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="<%= place.image %> ">
+                            <div class="caption-full">
+                                   
+                                    <div class="caption-full">
+        
+                                        <div class="inner">
+                                                <p class=""><i class="big user icon"></i><%= place.author.username %>
+                                        </div>
+                                           
+                                        <div id="time">
+                                                <p><%= place.created.toDateString() %></p>
+                                            </p>
+                                        </div>
+                                           
+                                          <div id="st">
+                                                <div class="inner">
+                                                        <h2><a class="head" href=""><%= place.title %></a></h2>
+                                                       
+                                                </div>
+                                               
+                                                <div id="right">
+                                                        <h4 ><%= place.name %> <i class="fa fa-map-marker"></i></h4>
+                                                </div>
+                                          </div>  
+                                        
+                                            <div>
+                                                <p><p class="des"><%- place.description %></p></p>
+                                            </div>
+                                            <input type="hidden" value="<%= place._id %>" id="postId">
+                                            <input type="hidden" value="<%= currentUser.username %>" id="authorId">
+                                            <button class="small ui button" id="like" value="<%=checkLike%>"><%= checkLike %></button>
+                                            <input class="circular ui icon button" type="button" value="<%= totalLikes %>" id="totalLikes">
+                                          
+                                            <div class="pull-right">
+                                                <form action="/places/<%= place._id %>/share" method="POST">
+                                                    <button class="circular ui icon button">Share</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                       
+        
+                                        <!-- <% if(currentUser && place.author.id.equals(currentUser._id)){ %>
+                                        <a class="btn btn-xs btn-warning" href="/places/<%= place._id %>/edit">Edit</a>
+                                        <form id="delete-form" action="/places/<%= place._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-xs btn-danger">Delete Story</button>
+                                        </form>
+                                    <% } %> -->
+                            </div>
+                        </div>
+                        <div class="well">
+                           
+                            <div class="ui form">
+                                    <form action="/places/<%= place._id %>/comments" method="post">
+                                        <div class="field">
+                                                <textarea rows="3" name="comment[text]" placeholder="Write a comment"></textarea>
+                                              </div>
+                                        
+                                        <button class="ui right labeled icon button" > <i class="comment icon"></i>Add a comment</button> 
+                                    </form>
+                            </div>
+                            <hr>
+                            <% place.comments.forEach(function(comment){ %>
+                                <div class="row">
+                                    <div class="col-md-12">
+        
+                                        <div id="commentHeader">
+                                                <strong><%= comment.author.username %></strong>
+                                                <span id="cd" class="pull-right"><%= comment.created.toDateString() %></span>
+                                        </div>
+                                       
+                                        <div >
+                                                <p class="commentShow"><%= comment.text %></p>
+                                        </div>
+                                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                        <div id="commentBtn">
+                                            <a class="btn btn-xs btn-warning" href="/places/<%= place.id %>/comments/<%= comment._id %>/edit" >Edit</a>
+        
+                                            <form id="delete-form" action="/places/<%= place.id %>/comments/<%= comment._id %>?_method=DELETE" method="post">
+                                                <button class="btn btn-xs btn-danger" >Delete</button>
+                                            </form>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div> 
+                            <% }) %>
+                        </div>
+                    </div>
+        
+                   
+                </div>
+               </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script>
+                $(document).ready(function(){
+                    $("#like").click(function(){
+
+                        var totalLikes = parseInt($('#totalLikes').val());
+                        console.log($('#like').val());
+                        var data = {
+                            like: $('#like').val(),
+                            storyId: $('#postId').val(),
+                            username: $('#authorId').val()
+                        }
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/post/like',
+                            data: data,
+                            success: function (data) {
+                                console.log(data);
+                            }
+                        });
+
+                        if($('#like').val() == 'Like'){
+                            $('#like').val('Unlike');
+                            $('#like').html('Unlike');
+                            $('#totalLikes').val(totalLikes+1);
+                        } else {
+                            $('#like').val('Like');
+                            $('#like').html('Like');
+                            $('#totalLikes').val(totalLikes-1);
+                        }
+                    });
+                });
+        </script>
+</body>
+</html>
+<!-- Custom css file for show page  -->
+
+
+
