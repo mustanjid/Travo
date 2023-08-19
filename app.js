@@ -13,8 +13,8 @@
       User = require('./models/user'),
       Rating = require('./models/rating'),
       Share = require('./models/share')
-      cookieParser = require("cookie-parser"),
-      seedDB = require('./seeds');
+      cookieParser = require("cookie-parser");
+      // seedDB = require('./seeds');
 
 
       // var fileUpload = require('express-fileupload');
@@ -26,7 +26,7 @@ var commentRoutes = require('./routes/comments'),
     shareRoutes = require('./routes/share');
     
 
-  mongoose.connect('mongodb://localhost/Travellers_DB_V3');
+  mongoose.connect('mongodb://localhost:27017/travo');
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(express.static(__dirname + "/public"));
   app.use(methodOverride("_method"));
