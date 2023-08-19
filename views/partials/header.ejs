@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Travellers</title>
+      <title>Travo</title>
       <!-- All cdns -->
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -31,20 +31,22 @@
     <nav class="navbar navbar-default  navbar-fixed">
       <div class="container">
           <div class="navbar-header">
-              <a class="navbar-brand" href="/">Travellers <i class="fas fa-expand"></i></a>
+              <a class="navbar-brand" href="/">Travo <i class="fas fa-expand"></i></a>
           </div>
 
           <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
+              <!-- <ul class="nav navbar-nav">
                   <li><a href="/places">Home</a></li>
-                  </ul>
+                  </ul> -->
 
             <ul class="nav navbar-nav navbar-right">
                 
              <% if(!currentUser){ %>
-              <li><a href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+              <!-- <li><a href="/login">Login <i class="fas fa-sign-in-alt"></i></a></li> -->
               <li><a href="/register">Sign Up <i class="fas fa-user-plus"></i></a></li>
             <% } else{ %>
+              <li><a class="btn btn-default btn-sm" href="/places/new">Add your adventure </a></li>
+              <li><a href="/places">Your adventures </a></li>
               <li><a href="/post/share">Favourite Stories</a></li>
               <li><a href="#">Sign in as <%= currentUser.username %></a></li>
               <li><a href="/logout">Log Out<i class="arrow right icon"></i></a></li>

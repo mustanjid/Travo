@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <header class="jumbotron">
+  <!-- <header class="jumbotron">
       <div class="container">
         <h1>Welcome to <strong>Travellers</strong></h1>
             <h4>Share Your Adventure</h4>
@@ -10,12 +10,33 @@
                   <a class="btn btn-primary btn-large" href="/places/new">Add a Story</a>
                 </p>
       </div>
-  </header>
+  </header> -->
+
+	<div class="row">
+      <% places.forEach(function(places){ %>
+        <div class="col-xs-4" style="display:flex; flex-wrap:wrap;">
+            <div class= "thumbnail">
+              <img  src="<%= places.image %>" style="width: 100%;
+              height: 15vw;
+              object-fit: cover;">
+
+              <div class="caption">
+                  <h4><%= places.title %></h4>
+              </div>
+
+              <div  style="text-align:center;">
+                <p>
+                  <a class="btn btn-primary btn-success" href="places/<%= places._id %>" >Read More ></a>
+                </p>
+              </div>
+
+            </div>
+          <% }); %>
+    </div>
+	</div>
 
 
-
-
-  <div class="row">
+  <!-- <div class="row">
     <% places.forEach(function(places){ %>
           <div class="col-md-3 col-sm-6" style="display:flex; flex-wrap:wrap;">
               <div class= "thumbnail">
@@ -35,10 +56,9 @@
 
           </div>
             <% }); %>
-  </div>
+  </div> -->
 </div>
 
-<% include ../partials/footer %>
 
 
 <!-- <div class="row" >
@@ -56,3 +76,6 @@
 
 </div> -->
 <!-- style="display:flex; flex-wrap: wrap; -->
+
+
+
