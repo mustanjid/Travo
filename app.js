@@ -25,8 +25,8 @@ var commentRoutes = require('./routes/comments'),
     ratingRoutes = require('./routes/rating');
     shareRoutes = require('./routes/share');
     
-
-  mongoose.connect('mongodb+srv://amarif333:JaxqJG7Eh5dW105N@travo.azk65ub.mongodb.net/?retryWrites=true&w=majority', {
+const mongoConnectURI = process.env.mongoConnectURI;
+  mongoose.connect(mongoConnectURI, {
     useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -72,7 +72,7 @@ var commentRoutes = require('./routes/comments'),
 
   app.set("view engine","ejs");
   // seedDB();
-
+const PORT = process.env.PORT;
  
   //initialize server port. now its default
-  app.listen(3000, () => console.log(" Travellers Server is running"));
+  app.listen(PORT, () => console.log(" Travellers Server is running"));
