@@ -26,7 +26,12 @@ var commentRoutes = require('./routes/comments'),
     shareRoutes = require('./routes/share');
     
 
-  mongoose.connect('mongodb://localhost:27017/travo');
+  mongoose.connect('mongodb+srv://amarif333:JaxqJG7Eh5dW105N@travo.azk65ub.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true 
+  });
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(express.static(__dirname + "/public"));
   app.use(methodOverride("_method"));
