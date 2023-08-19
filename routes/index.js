@@ -2,13 +2,23 @@ var express = require('express');
 var router  = express.Router();
 var passport = require('passport');
 var User = require('../models/user');
+var middleware = require("../middleware");
 
     /*=============================
         SHOW HOME PAGE/root route
     ==============================*/
-    router.get("/",function(req,res){
-        res.render("home");
-    });
+    if(middleware.isLoggedIn)
+    {
+        router.get("/", middleware.isLoggedIn,function(req,res){
+            res.redirect("/places");
+        });
+        
+    }else{
+        router.get("/", function(req,res){
+            res.render("home");
+        });
+    }
+   
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Getting Register FORM

@@ -35,7 +35,7 @@ cloudinary.config({
 Index - show all places
 ========================*/
 
-router.get("/", function (req, res) {
+router.get("/", middleware.isLoggedIn, function (req, res) {
   Place.find({}, function (err, allPlaces) {
     if (err) {
       console.log("OOPS! Something wrong");
