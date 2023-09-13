@@ -1,6 +1,9 @@
 # Travo
-It is a basic online publishing blog where travellers can share their adventures. Adventures would be shared by stories including images, and places. One traveller can comment on other travellers' posts & rate them, as well as share. All of you need to do is just sign up for all the activities.
+
+see live <a href="https://travo.onrender.com/">here</a>
+<br>
+It is an online publishing blog where travelers can share their adventures. Travelers would share their adventures through stories including images, and places. One traveler can comment on other travelers' posts & rate them as well as share.
 =====================================================================================================================================
-Stack- node.js, express.js(mvc), ejs(template engine), mongodb. Pls check setup.md file to get the information to run this project.
+Stack- node.js, express.js(MVC), ejs(template engine), mongodb. Pls, check the setup.Md file to get the information to run this project.
 =====================================================================================================================================
 
